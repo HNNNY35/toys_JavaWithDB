@@ -2,6 +2,7 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
 public class Commons {
     // statement 만드는 펑션
     public Statement getStatement(){
