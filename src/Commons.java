@@ -1,0 +1,30 @@
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Commons {
+    // statement 만드는 펑션
+    public Statement getStatement(){
+        String url = "jdbc:mysql://localhost:3306/toys_JavaWithDB";
+        String user = "root";
+        String password = "*khacademy!";
+
+        Statement statement = null;
+        
+        try {
+        Connection connection = DriverManager.getConnection(url, user, password);
+        statement = connection.createStatement();
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return statement;
+    }
+
+    // UID 만드는 펑션(날짜 이용해서)
+    public String getGeneratorID() {
+        Date date = new Date();  
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyyhh:mm:ss");  
+        String strDate = formatter.format(date);
+        return strDate;
+    }
+}
